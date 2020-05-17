@@ -24,8 +24,6 @@ class AuthController
             return "Login";
 
         }
-
-
     }
 
 }
