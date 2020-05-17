@@ -17,6 +17,6 @@
                     <li><a href="#">Products</a></li>
                     <li><a href="#">About us</a></li>
                     <li><a href="#">Contact</a></li>
-                    <li><a href="login.html">Log in</a></li>
+                    <li><a href="login.php">Log in</a></li>
                 </ul>
             </nav>
