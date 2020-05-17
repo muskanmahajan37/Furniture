@@ -1,29 +1,58 @@
-<?php
-require './backend/controllers/UserController.php';
-
-$user = new UserController;
-
-if(isset($_POST['submitted'])) {
-    $user->register($_POST);
-}
-
-
-?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+​
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Create User</title>
-    <link rel="stylesheet" href="">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX - Register</title>
+    <link href="./css/register.css" media="all" rel="stylesheet" type="text/css"/>
+
+
 </head>
+​
 <body>
-<form action="" method="POST">
-    <input type="text" name="name">
-    <input type="text" name="email">
-    <input type="password" name="password">
-    <input type="checkbox" name="is_superadmin">Is Admin?
-    <button type="submit" name="submitted">Save</button>
-</form>
+    <div class="register-hero">
+​
+        <div class="form-container">
+            <h1 class="register-text">Register</h1>
+            <form action="POST" class="form">
+                <input class="my-input" type="name" name="name" id="name" placeholder="Full name" required>
+                <br />
+                <input class="my-input" type="email" name="email" id="email" placeholder="Email" required>
+                <br />
+                <input class="my-input" type="password" name="password" id="password" placeholder="Password" required>
+                <br />
+                <input class="my-input" type="password" name="confirmpassword" id="confirmpassword"
+                    placeholder="Confirm Password" required>
+                <br />
+                <label class="gender-radio" for="male"><input type="radio" id="male" name="gender"
+                        value="male">Male &nbsp;&nbsp;</label><br />
+                <label class="gender-radio" for="female"><input type="radio" id="female" name="gender"
+                        value="male">Female</label>
+                <br />
+                <div class="city-wrapper">
+                    <label for="city" class="city-label">City</label><br />
+                    <select id="city" name="city">
+                        <option value="Prishtinë">Prishtinë</option>
+                        <option value="Prizren">Prizren</option>
+                        <option value="Gjakove">Gjakove</option>
+                        <option value="Gjilan">Gjilan</option>
+                        <option value="Ferizaj">Ferizaj</option>
+                        <option value="Pejë">Pejë</option>
+                        <option value="Mitrovicë">Mitrovicë</option>
+                    </select>
+                </div>
+                <br />
+                <button type="submit" class="register-button">Register</button>
+            </form>
+        </div>
+​
+        <div class="wp">
+            <img src="https://secure.img1-ag.wfcdn.com/im/85067821/resize-h500-w500%5Ecompr-r85%5Etransparent/1148/114856311/default_name.png"
+                alt="Chair">
+        </div>
+​
+    </div>
 </body>
+​
 </html>
