@@ -3,7 +3,6 @@ include './backend/core/Database.php';
 
 class UserController
 {
-
     protected $database;
 
     public function __construct()
@@ -27,9 +26,40 @@ class UserController
         $query->bindParam(':email', $request['email']);
         $query->bindParam(':password', $request['password']);
         $query->bindParam(':is_superadmin', $is_superadmin);
-        $query->bindParam(':gender',$request['gender']);
-        $query->bindParam(':city',$request['city']);
+        $query->bindParam(':gender', $request['gender']);
+        $query->bindParam(':city', $request['city']);
         $query->execute();
         return "Registered";
+    }
+
+    public function getById($id)
+    {
+        $query = $this->database->pdo->query('SELECT * FROM users WHERE id = :id');
+        $query->execute(['id' => $id]);
+        return $query->fetch();
+    }
+    public function edit($id)
+    {
+        $query = $this->db->pdo->prepare('SELECT * FROM users WHERE id = :id');
+        $query->execute(['id' => $id]);
+        return $query->fetch();
+    }
+    public function update($id, $request)
+    {
+        isset($request['is_admin']) ? $isAdmin = 1 : $isAdmin = 0;
+        $query = $this->db->pdo->prepare('UPDATE users SET name = :name, email = :email, is_admin = :is_admin WHERE id = :id');
+        $query->execute([
+            'name' => $request['fullName'],
+            'email' => $request['email'],
+            'is_admin' => $isAdmin,
+            'id' => $id
+        ]);
+        return header('Location: ./index.php');
+    }
+    public function destroy($id)
+    {
+        $query = $this->db->pdo->prepare('DELETE FROM users WHERE id = :id');
+        $query->execute(['id' => $id]);
+        return header('Location: ./index.php');
     }
 }
