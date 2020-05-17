@@ -83,3 +83,14 @@ input:focus {
   background-color: #bf914a;
   border: 1px solid white;
 }
+
+.register-text {
+  background-color: #bf914a;
+  color: white;
+}
+
+.register-here-text {
+  background-color: #bf914a;
+  text-decoration: underline;
+  color: white;
+}
