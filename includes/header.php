@@ -13,10 +13,10 @@
         <div class="hero">
             <nav>
                 <ul>
-                    <li><a href="index.php">Home</a></li>
-                    <li><a href="#">Products</a></li>
-                    <li><a href="#">About us</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li><a href="login.php">Log in</a></li>
+                    <a href="index.php"><li>Home</li></a>
+                    <a href="#"><li>Products</li></a>
+                    <a href="#"><li>About us</li></a>
+                    <a href="#"><li>Contact</li></a>
+                    <a href="login.php"><li>Log in</li></a>
                 </ul>
             </nav>
