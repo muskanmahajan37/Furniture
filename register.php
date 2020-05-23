@@ -1,3 +1,14 @@
+<?php
+    require './backend/controllers/UserController.php';
+
+    $user = new UserController;
+
+    if(isset($_POST['submitted'])) {
+        $user->register($_POST);
+    }
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 ​
@@ -15,7 +26,7 @@
 ​
         <div class="form-container">
             <h1 class="register-text">Register</h1>
-            <form action="POST" class="form">
+            <form method="POST" class="form">
                 <input class="my-input" type="name" name="name" id="name" placeholder="Full name" required>
                 <br />
                 <input class="my-input" type="email" name="email" id="email" placeholder="Email" required>
@@ -30,6 +41,9 @@
                 <label class="gender-radio" for="female"><input type="radio" id="female" name="gender"
                         value="male">Female</label>
                 <br />
+                <input class="my-input" type="Date" name="date_of_birth" id="date_of_birth" required>
+                <br />
+                
                 <div class="city-wrapper">
                     <label for="city" class="city-label">City</label><br />
                     <select id="city" name="city">
@@ -43,7 +57,7 @@
                     </select>
                 </div>
                 <br />
-                <button type="submit" class="register-button">Register</button>
+                <button type="submit" name="submitted" class="register-button">Register</button>
             </form>
         </div>
 ​

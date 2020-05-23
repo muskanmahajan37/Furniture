@@ -21,13 +21,14 @@ class UserController
     {
         isset($request['is_superadmin']) ? $is_superadmin = 1 : $is_superadmin = 0;
         $password = password_hash($request['password'], PASSWORD_DEFAULT);
-        $query = $this->database->pdo->prepare('INSERT INTO users(name,email,password,is_superadmin) VALUES (:name,:email,:password,:is_superadmin)');
+        $query = $this->database->pdo->prepare('INSERT INTO users(name,email,password,is_superadmin,gender,city,date_of_birth) VALUES (:name,:email,:password,:is_superadmin,:gender,:city,:date_of_birth)');
         $query->bindParam(':name', $request['name']);
         $query->bindParam(':email', $request['email']);
-        $query->bindParam(':password', $request['password']);
-        $query->bindParam(':is_superadmin', $is_superadmin);
+        $query->bindParam(':password', $password);
+        $query->bindParam(':is_superadmin',$is_superadmin);
         $query->bindParam(':gender', $request['gender']);
         $query->bindParam(':city', $request['city']);
+        $query->bindParam(':date_of_birth', $request['date_of_birth']);
         $query->execute();
         return "Registered";
     }
