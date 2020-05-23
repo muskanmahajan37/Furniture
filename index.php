@@ -1,5 +1,7 @@
 <?php
 include './includes/header.php';
+require './backend/controllers/UserController.php';
+$user = new UserController;
 
 ?>
 <h1 class="welcome">Welcome to Flex</h1>
