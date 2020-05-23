@@ -1,3 +1,14 @@
+<?php
+    require './backend/controllers/AuthController.php';
+
+    $user = new AuthController;
+
+    if(isset($_POST['submitted'])) {
+        $user->login($_POST);
+    }
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,13 +27,13 @@
         </div>
         <div class="form-container">
             <h1 class="login-text">Login</h1>
-            <form action="POST" class="form">
-                <input type="email" id="email" placeholder="Email" required>
+            <form method="POST"  class="form">
+                <input type="email" id="email" name="email" placeholder="Email" required>
                 <br />
-                <input type=" password" id="password" placeholder="Password" required>
+                <input type="password" id="password" name="password" placeholder="Password" required>
                 <p class="register-text">Don't have an acount? Sign up <a class="register-here-text" href="register.php">here</a>.</p>
                 <br />
-                <button type="submit" class="login-button">Log in</button>
+                <button type="submit" name="submitted" class="login-button">Log in</button>
             </form>
         </div>
     </div>
