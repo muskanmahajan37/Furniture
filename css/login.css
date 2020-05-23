@@ -94,3 +94,8 @@ input:focus {
   text-decoration: underline;
   color: white;
 }
+
+.form-error {
+  background-color: #bf914a;
+  color: #ff0000;
+}
