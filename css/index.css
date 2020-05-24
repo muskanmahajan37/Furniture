@@ -125,7 +125,7 @@ nav ul li:hover a {
 .carousel-wrapper {
   display: flex;
   margin-top: 12%;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .carousel-text {
@@ -135,6 +135,7 @@ nav ul li:hover a {
 .carousel-image {
   height: 60vh;
   width: 25vw;
+  border: 1px solid #b9b9b9;
 }
 
 /* footer style */
