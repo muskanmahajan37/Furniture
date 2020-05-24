@@ -101,3 +101,8 @@ div.left-area {
     max-width: 1000px;
   }
 }
+
+.error {
+  color: #ff0000;
+  font-size: 14px;
+}
