@@ -1,9 +1,12 @@
 <?php
 include './includes/header.php';
-require './backend/controllers/UserController.php';
-$user = new UserController;
+require './backend/controllers/ContactController.php';
 echo '<link href="./css/contact.css" rel="stylesheet">';
 
+$contact = new ContactController;
+if (isset($_POST['submitted'])) {
+    $contact->store($_POST);
+}
 ?>
 
 <div class="contact-container">
@@ -21,7 +24,7 @@ echo '<link href="./css/contact.css" rel="stylesheet">';
                 <div id="email-error" class="error"></div>
                 <textarea cols="30" rows="5" name="message" placeholder="Enter message" class="contact-input-message"></textarea>
                 <div id="message-error" class="error"></div>
-                <button class="contact-btn" type="submit">Send</button>
+                <button class="contact-btn" name="submitted" type="submit">Send</button>
             </form>
         </div>
     </div>
