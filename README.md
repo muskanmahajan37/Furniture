@@ -11,3 +11,7 @@ Dorezimi 1:
  - CRUD per contact.
  
  -------------------------------------------------------------------------------------------------
+
+Studentet:
+Rron Jakupi
+Valon Januzaj
