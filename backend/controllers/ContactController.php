@@ -1,6 +1,7 @@
 <?php
-include './backend/core/Database.php';
-
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .= '/flex-furniture/backend/core/Database.php';
+include_once($path);
 
 class ContactController
 {
@@ -8,7 +9,7 @@ class ContactController
 
     public function __construct()
     {
-        $this->database = new Database();
+        $this->database = new Database;
     }
 
     public function all()
@@ -50,9 +51,10 @@ class ContactController
 
     public function destroy($id)
     {
-        $query = $this->database->pdo->prepare('DELETE FROM contact WHERE id = :id');
+        $query = $this->database->pdo->prepare('DELETE FROM contacts WHERE id = :id');
         $query->execute(['id' => $id]);
 
-        return header('Location: contact.php');
+        return header('Location: contacts.php');
     }
 }
+?>
