@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 include './includes/header.php';
 require './backend/controllers/ContactController.php';
 echo '<link href="./css/contact.css" rel="stylesheet">';
