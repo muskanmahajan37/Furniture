@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 include './includes/header.php';
 require './backend/controllers/UserController.php';
 $user = new UserController;
@@ -22,7 +25,6 @@ $user = new UserController;
             <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas neque earum sit. Nostrum quam laudantium, culpa at unde voluptates eos quae ex temporibus itaque officia nobis cupiditate ullam. Est, veniam?
         </p>
-
         <div class="carousel">
             <img class="carousel-image" src="./assets/s1.jpg">
             <img class="carousel-image" src="./assets/s2.jpg">
