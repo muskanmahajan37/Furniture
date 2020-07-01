@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 require './backend/controllers/UserController.php';
 
 $user = new UserController;
@@ -39,8 +42,6 @@ if (isset($_POST['submitted'])) {
                 <br />
                 <label class="gender-radio" for="male"><input type="radio" id="male" name="gender" value="male">Male &nbsp;&nbsp;</label><br />
                 <label class="gender-radio" for="female"><input type="radio" id="female" name="gender" value="male">Female</label>
-                <br />
-                <input class="my-input" type="Date" name="date_of_birth" id="date_of_birth" data-validation="required">
                 <br />
 
                 <div class="city-wrapper">
