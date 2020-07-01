@@ -9,11 +9,8 @@ class Database
         $host = "localhost";
         $user = "root";
         $password = "";
-        $db_name = "flex-furniture";
-
-
+        $db_name = "flex-furniture-1";
         try{
-            session_start();
             $link = new PDO("mysql:host=$host;dbname=$db_name",$user,$password);
             $this->pdo = $link;
         }catch(PDOException $e) {
@@ -22,3 +19,4 @@ class Database
     }
 }
 
+?>
