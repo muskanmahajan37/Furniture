@@ -1,5 +1,7 @@
 <?php
-include './backend/core/Database.php';
+$path = $_SERVER['DOCUMENT_ROOT'];
+$path .='/flex-furniture/backend/core/Database.php';
+include_once($path);
 
 class AuthController
 {
@@ -7,7 +9,7 @@ class AuthController
 
     public function __construct()
     {
-        $this->database = new Database();
+        $this->database = new Database;
     }
 
     public function login($request)
@@ -18,15 +20,16 @@ class AuthController
         $user = $query->fetch();
     
         if(password_verify($request['password'], $user['password'])){
-            $_SESSION['user_id'] = $user['id'];
+            $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
+            $_SESSION['is_superadmin'] = $user['is_superadmin'];
             if($user['is_superadmin'] == 1){
-                header('Location: admin.php');
+                header('Location: backend/users.php');
             }else{
                 header("Location: index.php");
             }
         }
     }
-
 }
+?>
