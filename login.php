@@ -1,11 +1,19 @@
 <?php
 require './backend/controllers/AuthController.php';
-
+if(!isset($_SESSION)){
+    session_start();
+}
 $user = new AuthController;
-
 if (isset($_POST['submitted'])) {
     $user->login($_POST);
 }
+
+if(isset($_SESSION["name"]) && isset($_SESSION["is_superadmin"])){
+    header("Location:backend/users.php");
+} else if(isset($_SESSION["name"])){
+    header("Location:index.php");
+}
+
 
 ?>
 
