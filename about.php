@@ -1,4 +1,7 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
 include('includes/header.php');
 echo '<link href="./css/about.css" rel="stylesheet">';
 
@@ -29,6 +32,7 @@ echo '<link href="./css/about.css" rel="stylesheet">';
                 <a href="#p2"><img src="assets/download.jpg" alt=""></a>
                 <a href="#p3"><img src="assets/p3.jpg" alt=""></a>
             </div>
+
 
             <div class="section" id="p1">
                 <span class="name">Tyler Gregory Okonma</span>
