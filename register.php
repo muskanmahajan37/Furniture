@@ -3,9 +3,7 @@ if(!isset($_SESSION)){
     session_start();
 }
 require './backend/controllers/UserController.php';
-
 $user = new UserController;
-
 if (isset($_POST['submitted'])) {
     $user->register($_POST);
 }
@@ -14,8 +12,6 @@ if (isset($_POST['submitted'])) {
 
 <!DOCTYPE html>
 <html lang="en">
-​
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +20,8 @@ if (isset($_POST['submitted'])) {
     <script src="./scripts/jquery.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
 </head>
-​
-
 <body>
     <div class="register-hero">
-        ​
         <div class="form-container">
             <h1 class="register-text">Register</h1>
             <form method="POST" class="form">
@@ -43,7 +36,6 @@ if (isset($_POST['submitted'])) {
                 <label class="gender-radio" for="male"><input type="radio" id="male" name="gender" value="male">Male &nbsp;&nbsp;</label><br />
                 <label class="gender-radio" for="female"><input type="radio" id="female" name="gender" value="male">Female</label>
                 <br />
-
                 <div class="city-wrapper">
                     <label for="city" class="city-label">City</label><br />
                     <select id="city" name="city" data-validation="required">
