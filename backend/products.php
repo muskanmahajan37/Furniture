@@ -1,6 +1,6 @@
 <?php
 
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 if (!$_SESSION["is_superadmin"]) {
@@ -8,11 +8,8 @@ if (!$_SESSION["is_superadmin"]) {
 }
 
 
-
-
 require './controllers/ProductController.php';
 require './controllers/CategoryController.php';
-
 
 
 $product = new ProductController;
@@ -201,7 +198,9 @@ if (isset($_POST['createPost'])) {
                     <th>Created at</th>
                     <th>Quantity</th>
                     <th></th>
-                    <th><button id="myBtn" class="button1" style="float:right;">ADD PRODUCT</button></th>
+                    <th>
+                        <button id="myBtn" class="button1" style="float:right;">ADD PRODUCT</button>
+                    </th>
                 </tr>
                 <?php foreach ($products as $product) : ?>
                     <tr>
@@ -215,8 +214,10 @@ if (isset($_POST['createPost'])) {
                         <td><?php echo $product['image'] ?> </td>
                         <td><?php echo $product['created_at'] ?></td>
                         <td><?php echo $product['quantity'] ?></td>
-                        <td><a href="controllers/edit-product.php?id=<?php echo $product['id'] ?>" style="float: right">Edit</a></td>
-                        <td><a href="controllers/functions/delete-product.php?id=<?php echo $product['id'] ?>" style="float:right">Remove</a></td>
+                        <td><a href="controllers/edit-product.php?id=<?php echo $product['id'] ?>" style="float: right">Edit</a>
+                        </td>
+                        <td><a href="controllers/functions/delete-product.php?id=<?php echo $product['id'] ?>"
+                               style="float:right">Remove</a></td>
                     </tr>
                 <?php endforeach ?>
             </table>
@@ -235,11 +236,13 @@ if (isset($_POST['createPost'])) {
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div id="contact-form-group" class="form-group">
                             <label id="heading-contact-phone" class="contact-phone">Emri:</label>
-                            <input required id="inputButtons" type="text" name="name" style="position:relative;left:5px;">
+                            <input required id="inputButtons" type="text" name="name"
+                                   style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
                             <label id="title-contact-phone" class="contact-phone">Kodi:</label>
-                            <input required id="inputButtons" type="text" name="code" style="position:relative;left:19px;">
+                            <input required id="inputButtons" type="text" name="code"
+                                   style="position:relative;left:19px;">
                         </div>
                         <div class="form-group">
                             <label id="title-contact-phone" class="contact-phone">Kategoria:</label>
@@ -252,19 +255,22 @@ if (isset($_POST['createPost'])) {
                         </div>
                         <div class="form-group">
                             <label id="title-contact-phone" class="contact-phone">Çmimi:</label>
-                            <input required id="inputButtons" type="text" name="price" style="position:relative;left:5px;">
+                            <input required id="inputButtons" type="text" name="price"
+                                   style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
                             <label id="title-contact-phone" class="contact-phone">Përshkrimi:</label>
-                            <input required id="inputButtons" type="text" name="description" style="position:relative;left:5px;">
+                            <input required id="inputButtons" type="text" name="description"
+                                   style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
                             <label id="title-contact-phone" class="contact-phone">Sasia:</label>
-                            <input required id="inputButtons" type="text" name="quantity" style="position:relative;left:5px;">
+                            <input required id="inputButtons" type="text" name="quantity"
+                                   style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
                             <label id="title-contact-phone" class="contact-phone">Foto:</label>
-                            <input  type="file" name="image">
+                            <input type="file" name="image">
                         </div>
                         <button type="submit" name="createPost" class="addButton">Create</button>
                         <button type="button" class="cancelButton">Close</button>
@@ -285,12 +291,12 @@ if (isset($_POST['createPost'])) {
     var span = document.getElementsByClassName("cancelButton")[0];
 
     // When the user clicks the button, open the modal
-    btn.onclick = function() {
+    btn.onclick = function () {
         modal.style.display = "block";
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 </script>

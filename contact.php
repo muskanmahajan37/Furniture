@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 include './includes/header.php';
@@ -11,7 +11,6 @@ if (isset($_POST['submitted'])) {
     $contact->store($_POST);
 }
 ?>
-
 <div class="contact-container">
     <div class="form-area">
         <div class="left-area">
@@ -19,13 +18,16 @@ if (isset($_POST['submitted'])) {
         </div>
         <div class="right-text">
             <h2>Contact Us</h2>
-            <p>Feel Free to contact us if you have any questions about the service you have already taken or going to take any of our services.</p>
+            <p>Feel Free to contact us if you have any questions about the service you have already taken or going to
+                take any of our services.</p>
             <form name="contact" id="contact" onsubmit="return validateFormOnSubmit(this)" method="POST">
-                <input type="text" name="name" data-validation="required" placeholder="Enter name" class="contact-input">
+                <input type="text" name="name" data-validation="required" placeholder="Enter name"
+                       class="contact-input">
                 <div id="name-error" class="error"></div>
                 <input type="email" name="email" placeholder="Enter email" class="contact-input">
                 <div id="email-error" class="error"></div>
-                <textarea cols="30" rows="5" name="message" placeholder="Enter message" class="contact-input-message"></textarea>
+                <textarea cols="30" rows="5" name="message" placeholder="Enter message"
+                          class="contact-input-message"></textarea>
                 <div id="message-error" class="error"></div>
                 <button class="contact-btn" name="submitted" type="submit">Send</button>
             </form>
@@ -35,9 +37,7 @@ if (isset($_POST['submitted'])) {
 </div>
 </div>
 </div>
-
 <?php include('./includes/footer.php'); ?>
-
 <script>
     function validateFormOnSubmit(contact) {
         reason = "";
@@ -65,7 +65,6 @@ if (isset($_POST['submitted'])) {
         }
         return error;
     }
-
 
     function validateMessage(name) {
         var error = "";
