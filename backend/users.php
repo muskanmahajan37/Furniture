@@ -1,15 +1,10 @@
 <?php
-if(!isset($_SESSION))
-{
+if (!isset($_SESSION)) {
     session_start();
 }
 if (!$_SESSION["is_superadmin"]) {
     header("Location: ../index.php");
 }
-
-
-
-
 
 
 require './controllers/UserController.php';
@@ -175,7 +170,9 @@ if (isset($_POST['submitted'])) {
                     <th>City</th>
                     <th>Role</th>
                     <th>Date of Creation</th>
-                    <th><button id="myBtn" class="button1" style="float: right">ADD USER</button></th>
+                    <th>
+                        <button id="myBtn" class="button1" style="float: right">ADD USER</button>
+                    </th>
                 </tr>
                 <?php foreach ($users as $user) : ?>
                     <tr>
@@ -184,7 +181,7 @@ if (isset($_POST['submitted'])) {
                         <td><?php echo $user['email'] ?></td>
                         <td><?php echo $user['city'] ?></td>
                         <td><?php echo $user['is_superadmin'] == 1 ? "Admin" : "User" ?></td>
-<!--                        <td>--><?php //echo $user['created_at']?><!--</td>-->
+                        <!--                        <td>--><?php //echo $user['created_at']?><!--</td>-->
                         <td></td>
                         <td><a href="controllers/functions/delete-user.php?id=<?php echo $user["id"] ?>">Remove</a></td>
                     </tr>
@@ -210,7 +207,8 @@ if (isset($_POST['submitted'])) {
                         </div>
                         <div id="contact-form-group" class="form-group">
                             <label id="heading-contact-phone" class="contact-phone">Password:</label>
-                            <input id="inputButtons" type="password" name="password" style="position:relative;left:5px;">
+                            <input id="inputButtons" type="password" name="password"
+                                   style="position:relative;left:5px;">
                         </div>
                         <div id="contact-form-group" class="form-group">
                             <label id="heading-contact-phone" class="contact-phone">City:</label>
@@ -239,12 +237,12 @@ if (isset($_POST['submitted'])) {
     var span = document.getElementsByClassName("cancelButton")[0];
 
     // When the user clicks the button, open the modal
-    btn.onclick = function() {
+    btn.onclick = function () {
         modal.style.display = "block";
     }
 
     // When the user clicks on <span> (x), close the modal
-    span.onclick = function() {
+    span.onclick = function () {
         modal.style.display = "none";
     }
 </script>

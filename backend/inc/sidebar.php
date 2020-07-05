@@ -7,7 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/admin.css">
 </head>
-
 <body>
 <nav id="dashboard-sidebar">
     <h2 style="margin-left: 40px;color:#fff;margin-top: -10px;"></h2>

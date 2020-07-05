@@ -1,5 +1,5 @@
 <?php
-if(!isset($_SESSION)){
+if (!isset($_SESSION)) {
     session_start();
 }
 if (!$_SESSION["is_superadmin"]) {
@@ -74,7 +74,9 @@ $contacts = $contact->all();
                         <td><?php echo $contact['message'] ?></td>
                         <td><?php echo $contact['created_at'] ?></td>
                         <td><?php echo $contact['name'] ?></td>
-                        <td><a href="controllers/functions/delete-contact.php?id=<?php echo $contact['id'] ?>">Remove</a></td>
+                        <td>
+                            <a href="controllers/functions/delete-contact.php?id=<?php echo $contact['id'] ?>">Remove</a>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </table>
