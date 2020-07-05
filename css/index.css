@@ -11,11 +11,9 @@
   margin: 0 auto;
 }
 
-.hero {
-  width: 100%;
+.main-menu-hero {
   height: 100vh;
-  background-color: #f1f1f1;
-  position: relative;
+  width: 100%;
   text-align: center;
 }
 
@@ -26,7 +24,7 @@ nav {
 
 @media only screen and (max-width: 600px) {
   nav {
-   font-size: 1rem;
+    font-size: 1rem;
   }
 }
 
