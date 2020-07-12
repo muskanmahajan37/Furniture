@@ -1,6 +1,25 @@
+<?php
+require './../../controllers/ProductController.php';
+require './../../controllers/CategoryController.php';
+
+if (!isset($_SESSION)) {
+    session_start();
+}
+$product = new ProductController;
+$category = new CategoryController;
+
+$categories = $category->all();
+if (isset($_GET['id'])) {
+    $productId = $_GET['id'];
+}
+
+$currentProduct = $product->edit($productId);
+if (isset($_POST['submitted'])) {
+    $product->update($productId, $_SESSION['id'], $_POST);
+}
+?>
 <!DOCTYPE html>
 <html>
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -68,27 +87,6 @@
     </style>
 </head>
 <body>
-<?php
-require './../../controllers/ProductController.php';
-require './../../controllers/CategoryController.php';
-
-if (!isset($_SESSION)) {
-    session_start();
-}
-$product = new ProductController;
-$category = new CategoryController;
-
-$categories = $category->all();
-if (isset($_GET['id'])) {
-    $productId = $_GET['id'];
-}
-
-$currentProduct = $product->edit($productId);
-if (isset($_POST['submitted'])) {
-    $product->update($productId, $_SESSION['id'], $_POST);
-}
-?>
-
 <form action="" method="POST">
     <div id="form-group" class="form-group">
         <label id="heading-contact-phone" class="contact-phone">Name:</label>
