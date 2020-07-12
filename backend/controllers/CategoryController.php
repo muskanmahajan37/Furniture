@@ -15,7 +15,6 @@ class CategoryController
     public function all()
     {
         $query = $this->database->pdo->query('SELECT * FROM categories');
-
         return $query->fetchAll();
     }
 }

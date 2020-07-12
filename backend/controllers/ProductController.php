@@ -18,6 +18,21 @@ class ProductController
         return $query->fetchAll();
     }
 
+    public function edit($product_id)
+    {
+        $query = $this->database->pdo->prepare('SELECT p.id as product_id, p.name as product_name, p.code as product_code,p.price as product_price,
+                                u.name as user, c.name as category_name,c.id as category_id,
+                                p.description as product_description, p.created_at as product_createdDate,
+                                p.quantity as product_quantity,p.description as product_short_description,
+                                p.image as product_image
+                                        FROM products p
+                                        JOIN categories c on p.category_id = c.id
+                                        JOIN users u on p.created_by = u.id
+                                        WHERE p.id = :product_id');
+
+        $query->execute(['product_id' => $product_id]);
+        return $query->fetch();
+    }
 
     public function store($user, $request)
     {
@@ -35,6 +50,25 @@ class ProductController
         return header('Location: products.php');
     }
 
+    public function update($product_id, $user, $request)
+    {
+        $query = $this->database->pdo->prepare('UPDATE products SET name=:name,
+        description=:description,code=:code,
+        quantity=:quantity,
+        category_id=:category_id,
+        created_by=:created_by,
+        image = :image
+        WHERE id=:id');
+        $query->bindParam(":name",$request["product_name"]);
+        $query->bindParam(":description",$request["product_description"]);
+        $query->bindParam(":code",$request["product_code"]);
+        $query->bindParam(":quantity",$request["product_quantity"]);
+        $query->bindParam(":category_id",$request["product_category"]);
+        $query->bindParam(':image', $request["product_image"]);
+        $query->bindParam(":created_by",$user);
+        $query->bindParam(":id",$product_id);
+        $query->execute();
+    }
 
     public function delete($id)
     {

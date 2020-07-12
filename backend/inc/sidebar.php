@@ -15,9 +15,8 @@
         <li><a href="users.php">Users</a></li>
         <li><a href="products.php">Products</a></li>
         <li><a href="contacts.php">Contacts</a></li>
-        <li><a href="#">Orders</a></li>
         <li><a href="#">Slider</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="admin_about.php">About Us</a></li>
         <span>
                 <li></li>
             </span>

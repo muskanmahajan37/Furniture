@@ -18,5 +18,13 @@ class AboutController
         return $query->fetchAll();
     }
 
+    public function destroy($id)
+    {
+        $query = $this->database->pdo->prepare('DELETE FROM about WHERE id = :id');
+        $query->execute(['id' => $id]);
+
+        return header('Location: about_admin.php');
+    }
+
 
 }

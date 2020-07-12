@@ -22,10 +22,8 @@ if (isset($_POST['createPost'])) {
 
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,28 +53,17 @@ if (isset($_POST['createPost'])) {
     <style>
         .modal {
             display: none;
-            /* Hidden by default */
             position: fixed;
-            /* Stay in place */
             z-index: 1;
-            /* Sit on top */
             padding-top: 100px;
-            /* Location of the box */
             left: 7%;
             top: 5%;
             width: 100%;
-            /* Full width */
             height: 100%;
-            /* Full height */
             overflow: auto;
-            /* Enable scroll if needed */
             background-color: rgb(0, 0, 0);
-            /* Fallback color */
             background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
         }
-
-        /* Modal Content */
         .modal-content {
             position: relative;
             background-color: #fefefe;
@@ -91,8 +78,6 @@ if (isset($_POST['createPost'])) {
             animation-name: animatetop;
             animation-duration: 0.4s
         }
-
-        /* Add Animation */
         @-webkit-keyframes animatetop {
             from {
                 top: -300px;
@@ -104,7 +89,6 @@ if (isset($_POST['createPost'])) {
                 opacity: 1
             }
         }
-
         @keyframes animatetop {
             from {
                 top: -300px;
@@ -116,7 +100,6 @@ if (isset($_POST['createPost'])) {
                 opacity: 1
             }
         }
-
         .modal-header {
             padding-top: 5px;
             padding-left: 50px;
@@ -133,7 +116,6 @@ if (isset($_POST['createPost'])) {
             background-color: #5cb85c;
             color: white;
         }
-
         .addButton {
             background-color: #4CAF50;
             /* Green */
@@ -146,7 +128,6 @@ if (isset($_POST['createPost'])) {
             font-size: 16px;
             cursor: pointer;
         }
-
         .cancelButton {
             background-color: red;
             border: none;
@@ -159,7 +140,6 @@ if (isset($_POST['createPost'])) {
             cursor: pointer;
             text-decoration: none;
         }
-
         #selectors {
             width: 30%;
             box-sizing: border-box;
@@ -172,11 +152,8 @@ if (isset($_POST['createPost'])) {
             transition: all 0.5s ease;
         }
     </style>
-
 </head>
-
 <body>
-
 <div class="dashboard-wrapper">
     <?php include 'inc/sidebar.php' ?>
 
@@ -214,7 +191,7 @@ if (isset($_POST['createPost'])) {
                         <td><?php echo $product['image'] ?> </td>
                         <td><?php echo $product['created_at'] ?></td>
                         <td><?php echo $product['quantity'] ?></td>
-                        <td><a href="controllers/edit-product.php?id=<?php echo $product['id'] ?>" style="float: right">Edit</a>
+                        <td><a href="controllers/functions/edit-product.php?id=<?php echo $product['id'] ?>" style="float: right">Edit</a>
                         </td>
                         <td><a href="controllers/functions/delete-product.php?id=<?php echo $product['id'] ?>"
                                style="float:right">Remove</a></td>
@@ -223,10 +200,8 @@ if (isset($_POST['createPost'])) {
             </table>
 
         </div>
-
         <!-- CreateModal -->
         <div id="myModal" class="modal">
-
             <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-header">
@@ -283,19 +258,11 @@ if (isset($_POST['createPost'])) {
 
 <script>
     var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("cancelButton")[0];
-
-    // When the user clicks the button, open the modal
     btn.onclick = function () {
         modal.style.display = "block";
     }
-
-    // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
     }
