@@ -57,6 +57,7 @@ class ProductController
         quantity=:quantity,
         category_id=:category_id,
         created_by=:created_by,
+        price=:price,
         image = :image
         WHERE id=:id');
         $query->bindParam(":name",$request["product_name"]);
@@ -65,9 +66,11 @@ class ProductController
         $query->bindParam(":quantity",$request["product_quantity"]);
         $query->bindParam(":category_id",$request["product_category"]);
         $query->bindParam(':image', $request["product_image"]);
+        $query->bindParam(':price', $request["product_price"]);
         $query->bindParam(":created_by",$user);
         $query->bindParam(":id",$product_id);
         $query->execute();
+        return header("Location: ../../products.php");
     }
 
     public function delete($id)

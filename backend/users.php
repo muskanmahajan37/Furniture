@@ -41,120 +41,9 @@ if (isset($_POST['submitted'])) {
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <style>
-        .modal {
-            display: none;
-            /* Hidden by default */
-            position: fixed;
-            /* Stay in place */
-            z-index: 1;
-            /* Sit on top */
-            padding-top: 100px;
-            /* Location of the box */
-            left: 7%;
-            top: 5%;
-            width: 100%;
-            /* Full width */
-            height: 100%;
-            /* Full height */
-            overflow: auto;
-            /* Enable scroll if needed */
-            background-color: rgb(0, 0, 0);
-            /* Fallback color */
-            background-color: rgba(0, 0, 0, 0.4);
-            /* Black w/ opacity */
-        }
-
-        /* Modal Content */
-        .modal-content {
-            position: relative;
-            background-color: #fefefe;
-            margin: auto;
-            padding: 0;
-            border: 1px solid #888;
-            width: 60%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            -webkit-animation-name: animatetop;
-            -webkit-animation-duration: 0.4s;
-            animation-name: animatetop;
-            animation-duration: 0.4s
-        }
-
-        /* Add Animation */
-        @-webkit-keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        @keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-
-        .modal-header {
-            padding: 2px 16px;
-            background-color: #ffff;
-            color: white;
-        }
-
-        .modal-body {
-            padding: 27px 16px;
-        }
-
-        .modal-footer {
-            padding: 2px 16px;
-            background-color: #5cb85c;
-            color: white;
-        }
-
-        .addButton {
-            background-color: #4CAF50;
-            /* Green */
-            border: none;
-            color: white;
-            margin-left: 30%;
-            margin-left: 30%;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .cancelButton {
-            background-color: red;
-            border: none;
-            color: white;
-            margin-left: 5%;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
 </head>
 
 <body>
-
-
-<!-- Content -->
-
 <div class="dashboard-wrapper">
     <?php include 'inc/sidebar.php' ?>
     <div id="dashboard-container">
@@ -170,9 +59,9 @@ if (isset($_POST['submitted'])) {
                     <th>City</th>
                     <th>Role</th>
                     <th>Date of Creation</th>
-                    <th>
-                        <button id="myBtn" class="button1" style="float: right">ADD USER</button>
-                    </th>
+                    <th></th>
+                    <th></th>
+                    <th><button id="myBtn" class="button1">ADD USER</button></th>
                 </tr>
                 <?php foreach ($users as $user) : ?>
                     <tr>
@@ -181,37 +70,42 @@ if (isset($_POST['submitted'])) {
                         <td><?php echo $user['email'] ?></td>
                         <td><?php echo $user['city'] ?></td>
                         <td><?php echo $user['is_superadmin'] == 1 ? "Admin" : "User" ?></td>
-                        <!--                        <td>--><?php //echo $user['created_at']?><!--</td>-->
+                        <td><?php echo $user['created_at']?></td>
                         <td></td>
                         <td><a href="controllers/functions/delete-user.php?id=<?php echo $user["id"] ?>">Remove</a></td>
+                        <td><a href="controllers/functions/edit-user.php?id=<?php echo $user["id"] ?>">Edit</a></td>
+
                     </tr>
                 <?php endforeach ?>
             </table>
-
         </div>
-
-        <!-- Modal -->
         <div id="myModal" class="modal">
-
-            <!-- Modal content -->
             <div class="modal-content">
                 <div class="modal-body">
                     <form action="" method="POST">
                         <div id="contact-form-group" class="form-group">
+                            <div class="input-label">
                             <label id="heading-contact-phone" class="contact-phone">Name:</label>
+                            </div>
                             <input id="inputButtons" type="text" name="name" style="position:relative;left:5px;">
                         </div>
                         <div id="contact-form-group" class="form-group">
+                            <div class="input-label">
                             <label id="heading-contact-phone" class="contact-phone">Email:</label>
+                            </div>
                             <input id="inputButtons" type="email" name="email" style="position:relative;left:5px;">
                         </div>
                         <div id="contact-form-group" class="form-group">
+                            <div class="input-label">
                             <label id="heading-contact-phone" class="contact-phone">Password:</label>
+                            </div>
                             <input id="inputButtons" type="password" name="password"
                                    style="position:relative;left:5px;">
                         </div>
                         <div id="contact-form-group" class="form-group">
+                            <div class="input-label">
                             <label id="heading-contact-phone" class="contact-phone">City:</label>
+                            </div>
                             <input id="inputButtons" type="text" name="city" style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
@@ -226,26 +120,16 @@ if (isset($_POST['submitted'])) {
         </div>
     </div>
 </div>
-
 <script>
     var modal = document.getElementById("myModal");
-
-    // Get the button that opens the modal
     var btn = document.getElementById("myBtn");
-
-    // Get the <span> element that closes the modal
     var span = document.getElementsByClassName("cancelButton")[0];
-
-    // When the user clicks the button, open the modal
     btn.onclick = function () {
         modal.style.display = "block";
     }
-
-    // When the user clicks on <span> (x), close the modal
     span.onclick = function () {
         modal.style.display = "none";
     }
 </script>
 </body>
-
 </html>

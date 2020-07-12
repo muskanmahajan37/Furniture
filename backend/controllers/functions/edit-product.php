@@ -42,49 +42,6 @@ if (isset($_POST['submitted'])) {
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../../images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-    <style>
-        body {
-            padding: 10px 50% 0 10px;
-        }
-
-        #selectors {
-            width: 30%;
-            box-sizing: border-box;
-            padding: 20px;
-            margin-bottom: 25px;
-            border: 2px solid #065b91;
-            color: #3e3e40;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.5s ease;
-        }
-
-        .addButton {
-            background-color: #4CAF50;
-            border: none;
-            color: white;
-            margin-left: 30%;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .cancelButton {
-            background-color: red;
-            border: none;
-            color: white;
-            margin-left: 5%;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-    </style>
 </head>
 <body>
 <form action="" method="POST">

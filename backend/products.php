@@ -6,15 +6,10 @@ if (!isset($_SESSION)) {
 if (!$_SESSION["is_superadmin"]) {
     header("Location: ../index.php");
 }
-
-
 require './controllers/ProductController.php';
 require './controllers/CategoryController.php';
-
-
 $product = new ProductController;
 $category = new CategoryController;
-
 $products = $product->all();
 $categories = $category->all();
 if (isset($_POST['createPost'])) {
@@ -49,109 +44,6 @@ if (isset($_POST['createPost'])) {
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="../images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-
-    <style>
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1;
-            padding-top: 100px;
-            left: 7%;
-            top: 5%;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgb(0, 0, 0);
-            background-color: rgba(0, 0, 0, 0.4);
-        }
-        .modal-content {
-            position: relative;
-            background-color: #fefefe;
-            margin: auto;
-            margin-bottom: 7%;
-            padding: 0;
-            border: 1px solid #888;
-            width: 60%;
-            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-            -webkit-animation-name: animatetop;
-            -webkit-animation-duration: 0.4s;
-            animation-name: animatetop;
-            animation-duration: 0.4s
-        }
-        @-webkit-keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-        @keyframes animatetop {
-            from {
-                top: -300px;
-                opacity: 0
-            }
-
-            to {
-                top: 0;
-                opacity: 1
-            }
-        }
-        .modal-header {
-            padding-top: 5px;
-            padding-left: 50px;
-            background-color: #ffff;
-            color: #065b91;
-        }
-
-        .modal-body {
-            padding: 27px 16px;
-        }
-
-        .modal-footer {
-            padding: 2px 16px;
-            background-color: #5cb85c;
-            color: white;
-        }
-        .addButton {
-            background-color: #4CAF50;
-            /* Green */
-            border: none;
-            color: white;
-            margin-left: 30%;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-        }
-        .cancelButton {
-            background-color: red;
-            border: none;
-            color: white;
-            margin-left: 5%;
-            padding: 16px 32px;
-            text-align: center;
-            text-decoration: none;
-            font-size: 16px;
-            cursor: pointer;
-            text-decoration: none;
-        }
-        #selectors {
-            width: 30%;
-            box-sizing: border-box;
-            padding: 20px;
-            margin-bottom: 25px;
-            border: 2px solid #065b91;
-            color: #3e3e40;
-            font-size: 14px;
-            outline: none;
-            transition: all 0.5s ease;
-        }
-    </style>
 </head>
 <body>
 <div class="dashboard-wrapper">
@@ -191,7 +83,8 @@ if (isset($_POST['createPost'])) {
                         <td><?php echo $product['image'] ?> </td>
                         <td><?php echo $product['created_at'] ?></td>
                         <td><?php echo $product['quantity'] ?></td>
-                        <td><a href="controllers/functions/edit-product.php?id=<?php echo $product['id'] ?>" style="float: right">Edit</a>
+                        <td><a href="controllers/functions/edit-product-1.php?id=<?php echo $product['id'] ?>"
+                               style="float: right">Edit</a>
                         </td>
                         <td><a href="controllers/functions/delete-product.php?id=<?php echo $product['id'] ?>"
                                style="float:right">Remove</a></td>
@@ -210,17 +103,21 @@ if (isset($_POST['createPost'])) {
                 <div class="modal-body">
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div id="contact-form-group" class="form-group">
-                            <label id="heading-contact-phone" class="contact-phone">Emri:</label>
+                            <div class="input-label">
+                                <label id="heading-contact-phone" class="contact-phone">Emri:</label>
+                            </div>
                             <input required id="inputButtons" type="text" name="name"
                                    style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
-                            <label id="title-contact-phone" class="contact-phone">Kodi:</label>
+                            <div class="input-label"><label id="title-contact-phone"
+                                                            class="contact-phone">Kodi:</label></div>
                             <input required id="inputButtons" type="text" name="code"
-                                   style="position:relative;left:19px;">
+                                   style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
-                            <label id="title-contact-phone" class="contact-phone">Kategoria:</label>
+                            <div class="input-label"><label id="title-contact-phone"
+                                                            class="contact-phone">Kategoria:</label></div>
                             <select id="selectors" name="category_id" required>
                                 <option value="" selected>Choose a category:</option>
                                 <?php foreach ($categories as $category) : ?>
@@ -229,22 +126,26 @@ if (isset($_POST['createPost'])) {
                             </select>
                         </div>
                         <div class="form-group">
-                            <label id="title-contact-phone" class="contact-phone">Çmimi:</label>
+                            <div class="input-label"><label id="title-contact-phone"
+                                                            class="contact-phone">Çmimi:</label></div>
                             <input required id="inputButtons" type="text" name="price"
                                    style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
-                            <label id="title-contact-phone" class="contact-phone">Përshkrimi:</label>
+                            <div class="input-label"><label id="title-contact-phone"
+                                                            class="contact-phone">Përshkrimi:</label></div>
                             <input required id="inputButtons" type="text" name="description"
                                    style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
-                            <label id="title-contact-phone" class="contact-phone">Sasia:</label>
+                            <div class="input-label"><label id="title-contact-phone"
+                                                            class="contact-phone">Sasia:</label></div>
                             <input required id="inputButtons" type="text" name="quantity"
                                    style="position:relative;left:5px;">
                         </div>
                         <div class="form-group">
-                            <label id="title-contact-phone" class="contact-phone">Foto:</label>
+                            <div class="input-label"><label id="title-contact-phone" class="contact-phone">Foto:</label>
+                            </div>
                             <input type="file" name="image">
                         </div>
                         <button type="submit" name="createPost" class="addButton">Create</button>

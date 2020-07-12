@@ -15,11 +15,7 @@
         <li><a href="users.php">Users</a></li>
         <li><a href="products.php">Products</a></li>
         <li><a href="contacts.php">Contacts</a></li>
-        <li><a href="#">Slider</a></li>
         <li><a href="admin_about.php">About Us</a></li>
-        <span>
-                <li></li>
-            </span>
         <li><a href="controllers/functions/logout.php">Logout</a></li>
     </ul>
 </nav>

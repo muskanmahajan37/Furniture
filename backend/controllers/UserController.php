@@ -47,15 +47,16 @@ class UserController
     }
     public function update($id, $request)
     {
-        isset($request['is_admin']) ? $isAdmin = 1 : $isAdmin = 0;
-        $query = $this->database->pdo->prepare('UPDATE users SET name = :name, email = :email, is_admin = :is_admin WHERE id = :id');
+        isset($request['is_superadmin']) ? $isAdmin = 1 : $isAdmin = 0;
+        $query = $this->database->pdo->prepare('UPDATE users SET name = :name,city=:city, email = :email, is_superadmin = :is_superadmin WHERE id = :id');
         $query->execute([
-            'name' => $request['fullName'],
+            'name' => $request['name'],
+            'city' => $request['city'],
             'email' => $request['email'],
-            'is_admin' => $isAdmin,
+            'is_superadmin' => $isAdmin,
             'id' => $id
         ]);
-        return header('Location: ./index.php');
+        return header("Location: ../../users.php");
     }
     public function destroy($id)
     {
@@ -63,6 +64,7 @@ class UserController
         $query->execute(['id' => $id]);
         return header('Location: ./index.php');
     }
+
 
     public function storeFromAdmin($request)
     {
