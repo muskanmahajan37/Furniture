@@ -52,7 +52,7 @@ if (isset($_POST['submitted'])) {
         <div class="content-title">
             <h1 class="page-title"><a href="users.php">Admin Dashboard</a></h1>
         </div>
-        <div class="main-content" style="margin-left:30px">
+        <div class="main-content-edit" style="margin-left:30px">
             <form action="" method="POST">
                 <div id="contact-form-group" class="form-group">
                     <div class="input-label">
