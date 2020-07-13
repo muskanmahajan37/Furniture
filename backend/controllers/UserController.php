@@ -39,12 +39,15 @@ class UserController
         $query->execute(['id' => $id]);
         return $query->fetch();
     }
+
     public function edit($id)
     {
         $query = $this->database->pdo->prepare('SELECT * FROM users WHERE id = :id');
         $query->execute(['id' => $id]);
         return $query->fetch();
     }
+
+
     public function update($id, $request)
     {
         isset($request['is_superadmin']) ? $isAdmin = 1 : $isAdmin = 0;

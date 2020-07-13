@@ -44,6 +44,13 @@ if (isset($_POST['submitted'])) {
     <meta name="theme-color" content="#ffffff">
 </head>
 <body>
+<div class="dashboard-wrapper">
+    <?php include '../../inc/sidebar.php' ?>
+    <div id="dashboard-container">
+        <div class="content-title">
+            <h1 class="page-title"><a href="users.php">Admin Dashboard</a></h1>
+        </div>
+        <div class="main-content" style="margin-left:30px">
 <form action="" method="POST">
     <div id="form-group" class="form-group">
         <label id="heading-contact-phone" class="contact-phone">Name:</label>
@@ -81,6 +88,10 @@ if (isset($_POST['submitted'])) {
     <button type="submit" name="submitted" class="addButton">Update</button>
     <button type="button" onclick="window.location.href = '../../products.php';" class="cancelButton">Cancel</button>
 </form>
+        </div>
+
+    </div>
+</div>
 </body>
 
 </html>

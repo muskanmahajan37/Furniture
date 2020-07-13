@@ -1625,6 +1625,7 @@ nav ul li:hover>a {
     width: 100%;
     min-height: 630px;
     padding-bottom: 10%;
+    margin-top: 15px;
 }
 
 .main-content-product{

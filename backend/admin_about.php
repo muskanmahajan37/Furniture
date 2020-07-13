@@ -40,6 +40,7 @@ $about_all = $about->all();
                     <th>Biography</th>
                     <th>Created_at</th>
                     <th></th>
+                    <th></th>
                 </tr>
                 <?php foreach ($about_all as $about) : ?>
                     <tr>
@@ -48,8 +49,12 @@ $about_all = $about->all();
                         <td><?php echo $about['biography'] ?></td>
                         <td><?php echo $about['created_at'] ?></td>
                         <td>
+                            <a href="controllers/functions/edit-about.php?id=<?php echo $about['id'] ?>">Edit</a>
+                        </td>
+                        <td>
                             <a href="controllers/functions/delete-about.php?id=<?php echo $about['id'] ?>">Remove</a>
                         </td>
+
                     </tr>
                 <?php endforeach; ?>
             </table>
