@@ -8,11 +8,42 @@ $user = new UserController;
 
 ?>
 <div class="main-menu-hero">
-    <h1 class="welcome">Welcome to Flex</h1>
+    <!-- <h1 class="welcome">Welcome to Flex</h1>
     <img src="https://secure.img1-ag.wfcdn.com/im/85067821/resize-h500-w500%5Ecompr-r85%5Etransparent/1148/114856311/default_name.png" alt="Comfortable chair" class="hero-chair">
 
     <div id="scrollDown">
         <img src="./assets/arrow.png" class="arrow">
+    </div> -->
+    <div class="slidershow middle">
+        <div class="slides">
+            <input type="radio" name="r" id="r1" checked>
+            <input type="radio" name="r" id="r2">
+            <input type="radio" name="r" id="r3">
+            <input type="radio" name="r" id="r4">
+            <input type="radio" name="r" id="r5">
+            <div class="slide s1">
+                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+            </div>
+            <div class="slide">
+                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+            </div>
+        </div>
+        <div class="navigation">
+            <label for="r1" class="bar"></label>
+            <label for="r2" class="bar"></label>
+            <label for="r3" class="bar"></label>
+            <label for="r4" class="bar"></label>
+            <label for="r5" class="bar"></label>
+        </div>
     </div>
 </div>
 
@@ -26,9 +57,9 @@ $user = new UserController;
             our main concern when it comes to consumer happiness. When you shop at Flex.com you can shop with great
             confidence that you the customer will always be treated with the utmost care and respect. Our goal is to
             provide you with a wonderful experience and keep you coming back for your future furniture purchases.
-            <br/>
-            <br/>
-            <br/>
+            <br />
+            <br />
+            <br />
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas neque earum sit. Nostrum quam laudantium,
             culpa at unde voluptates eos quae ex temporibus itaque officia nobis cupiditate ullam. Est, veniam?
         </p>
