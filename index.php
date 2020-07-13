@@ -25,16 +25,16 @@ $user = new UserController;
                 <img src="/flex-furniture/assets/wp2.jpg" alt="">
             </div>
             <div class="slide">
-                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+                <img src="/flex-furniture/assets/aboutusbackground.jpg" alt="">
             </div>
             <div class="slide">
-                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+                <img src="/flex-furniture/assets/inter3.jpg" alt="">
             </div>
             <div class="slide">
-                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+                <img src="/flex-furniture/assets/dark-furniture.jpg" alt="">
             </div>
             <div class="slide">
-                <img src="/flex-furniture/assets/wp2.jpg" alt="">
+                <img src="/flex-furniture/assets/dark-furniture-1.png" alt="">
             </div>
         </div>
         <div class="navigation">
