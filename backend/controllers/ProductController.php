@@ -6,6 +6,7 @@ include_once($path);
 class ProductController
 {
     protected $database;
+
     public function __construct()
     {
         $this->database = new Database;
@@ -36,6 +37,7 @@ class ProductController
 
     public function store($user, $request)
     {
+
         $query = $this->database->pdo->prepare('INSERT INTO products (category_id, name, price, code, description, quantity, created_by, image)VALUES(:category_id,:name,:price,:code,:description,:quantity,:created_by,:image)');
         $query->bindParam(':category_id', $request['category_id']);
         $query->bindParam(':name', $request['name']);
@@ -46,31 +48,55 @@ class ProductController
         $query->bindParam(':created_by', $user);
         $query->bindParam(':image', $_FILES['image']['name']);
         $query->execute();
-        move_uploaded_file($_FILES["image"]["tmp_name"],"./../uploads/".$_FILES['image']['name']);
+        move_uploaded_file($_FILES["image"]["tmp_name"], "./../uploads/" . $_FILES['image']['name']);
         return header('Location: products.php');
     }
 
     public function update($product_id, $user, $request)
     {
-        $query = $this->database->pdo->prepare('UPDATE products SET name=:name,
-        description=:description,code=:code,
-        quantity=:quantity,
-        category_id=:category_id,
-        created_by=:created_by,
-        price=:price,
-        image = :image
-        WHERE id=:id');
-        $query->bindParam(":name",$request["product_name"]);
-        $query->bindParam(":description",$request["product_description"]);
-        $query->bindParam(":code",$request["product_code"]);
-        $query->bindParam(":quantity",$request["product_quantity"]);
-        $query->bindParam(":category_id",$request["product_category"]);
-        $query->bindParam(':image', $request["product_image"]);
-        $query->bindParam(':price', $request["product_price"]);
-        $query->bindParam(":created_by",$user);
-        $query->bindParam(":id",$product_id);
-        $query->execute();
+            if ($_FILES["image"]["error"]) {
+                $query = $this->database->pdo->prepare('UPDATE products SET name=:name,
+                description=:description,code=:code,
+                quantity=:quantity,
+                category_id=:category_id,
+                created_by=:created_by,
+                price=:price
+                WHERE id=:id');
+                $query->bindParam(":name", $request["product_name"]);
+                $query->bindParam(":description", $request["product_description"]);
+                $query->bindParam(":code", $request["product_code"]);
+                $query->bindParam(":quantity", $request["product_quantity"]);
+                $query->bindParam(":category_id", $request["product_category"]);
+                $query->bindParam(':price', $request["product_price"]);
+                $query->bindParam(":created_by", $user);
+                $query->bindParam(":id", $product_id);
+                $query->execute();
+        } else {
+            $upload_path = $_SERVER['DOCUMENT_ROOT'];
+            $upload_path .= '/flex-furniture/uploads/';
+            $temp_file = $_FILES['image']['tmp_name'];
+            $query = $this->database->pdo->prepare('UPDATE products SET name=:name,
+                description=:description,code=:code,
+                quantity=:quantity,
+                category_id=:category_id,
+                created_by=:created_by,
+                price=:price,
+                image = :image
+                WHERE id=:id');
+            $query->bindParam(":name", $request["product_name"]);
+            $query->bindParam(":description", $request["product_description"]);
+            $query->bindParam(":code", $request["product_code"]);
+            $query->bindParam(":quantity", $request["product_quantity"]);
+            $query->bindParam(":category_id", $request["product_category"]);
+            $query->bindParam(':image', $_FILES['image']['name']);
+            $query->bindParam(':price', $request["product_price"]);
+            $query->bindParam(":created_by", $user);
+            $query->bindParam(":id", $product_id);
+            $query->execute();
+            move_uploaded_file($temp_file, $upload_path . $_FILES['image']['name']);
+        }
         return header("Location: ../../products.php");
+
     }
 
     public function delete($id)
@@ -80,4 +106,5 @@ class ProductController
         return header('Location: products.php');
     }
 }
+
 ?>

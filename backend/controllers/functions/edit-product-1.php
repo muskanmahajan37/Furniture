@@ -55,7 +55,7 @@ if (isset($_POST['submitted'])) {
             <h1 class="page-title"><a href="users.php">Admin Dashboard</a></h1>
         </div>
         <div class="main-content-edit" style="margin-left:30px">
-            <form action="" method="POST">
+            <form action="" method="POST" enctype="multipart/form-data">
                 <div id="form-group" class="form-group">
                     <div class="input-label">
                     <label id="heading-contact-phone" class="contact-phone">Name:</label>
@@ -95,7 +95,7 @@ if (isset($_POST['submitted'])) {
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Foto:</label>
                     </div>
-                    <input type="file" value="<?php echo $currentProduct['product_image']?>" name="product_image" accept="image/*">
+                    <input type="file" name="image">
                 </div>
                 <button type="submit" name="submitted" class="addButton">Update</button>
                 <button type="button" onclick="window.location.href = '../../products.php';" class="cancelButton">Cancel</button>
