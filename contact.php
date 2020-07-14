@@ -34,9 +34,7 @@ if (isset($_POST['submitted'])) {
         </div>
     </div>
 </div>
-</div>
-</div>
-</div>
+
 <?php include('./includes/footer.php'); ?>
 <script>
     function validateFormOnSubmit(contact) {

@@ -17,7 +17,7 @@
                     <a href="about.php"><li>About us</li></a>
                     <a href="contact.php"><li>Contact</li></a>
                     <?php if(isset($_SESSION["name"])):?>
-                    <a href="backend/controllers/functions/logout.php">LOGOUT</a>
+                    <a href="backend/controllers/functions/logout.php"><li>Logout</li></a>
                     <?php else:?>
                     <a href="login.php"><li>Log in</li></a>
                     <?php endif?>

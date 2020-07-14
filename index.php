@@ -3,9 +3,10 @@ if (!isset($_SESSION)) {
     session_start();
 }
 include './includes/header.php';
-require './backend/controllers/UserController.php';
-$user = new UserController;
-
+require './backend/controllers/SliderController.php';
+$slider = new SliderController;
+$sliders = $slider->all();
+$index = 0;
 ?>
 <div class="main-menu-hero">
     <!-- <h1 class="welcome">Welcome to Flex</h1>
@@ -14,6 +15,7 @@ $user = new UserController;
     <div id="scrollDown">
         <img src="./assets/arrow.png" class="arrow">
     </div> -->
+
     <div class="slidershow middle">
         <div class="slides">
             <input type="radio" name="r" id="r1" checked>
@@ -21,21 +23,12 @@ $user = new UserController;
             <input type="radio" name="r" id="r3">
             <input type="radio" name="r" id="r4">
             <input type="radio" name="r" id="r5">
-            <div class="slide s1">
-                <img src="/flex-furniture/assets/wp2.jpg" alt="">
-            </div>
-            <div class="slide">
-                <img src="/flex-furniture/assets/aboutusbackground.jpg" alt="">
-            </div>
-            <div class="slide">
-                <img src="/flex-furniture/assets/inter3.jpg" alt="">
-            </div>
-            <div class="slide">
-                <img src="/flex-furniture/assets/dark-furniture.jpg" alt="">
-            </div>
-            <div class="slide">
-                <img src="/flex-furniture/assets/dark-furniture-1.png" alt="">
-            </div>
+            <?php foreach ($sliders as $slider) : ?>
+                <div class="<?php if($index == 0){echo 'slide s1';}else{ echo 'slide';}?>">
+                    <img src="uploads/<?php echo $slider['image'] ?>">
+                </div>
+            <?php $index++ ?>
+            <?php endforeach; ?>
         </div>
         <div class="navigation">
             <label for="r1" class="bar"></label>
@@ -46,10 +39,8 @@ $user = new UserController;
         </div>
     </div>
 </div>
-
 <div class="second">
     <p class="second-title">Some of our products</p>
-
     <div class="carousel-wrapper">
         <p class="carousel-text">Here at Home Furniture by Flex.com we know how difficult it can be when purchasing
             online, that's why our company gives maximum priority to customer satisfaction. Our highly trained staff is
@@ -57,9 +48,9 @@ $user = new UserController;
             our main concern when it comes to consumer happiness. When you shop at Flex.com you can shop with great
             confidence that you the customer will always be treated with the utmost care and respect. Our goal is to
             provide you with a wonderful experience and keep you coming back for your future furniture purchases.
-            <br />
-            <br />
-            <br />
+            <br/>
+            <br/>
+            <br/>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas neque earum sit. Nostrum quam laudantium,
             culpa at unde voluptates eos quae ex temporibus itaque officia nobis cupiditate ullam. Est, veniam?
         </p>

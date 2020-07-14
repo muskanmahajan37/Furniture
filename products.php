@@ -10,19 +10,19 @@ $data = $product->all();
 
 ?>
 <h1 class="welcome">Products</h1>
-<div class="products">
+<div class="row">
     <?php foreach ($data as $p) : ?>
-        <div class="product">
+
+        <div class="column">
             <img src="uploads/<?php echo $p['image'] ?>" alt="<?php $p['name'] ?>" class="product-image">
             <h2 class="product-text"><?php echo $p['name'] ?></h2>
             <p class="product-text"><?php echo $p['category'] ?></p>
             <p class="product-text"><?php echo $p['username'] ?></p>
             <p class="product-text"><?php echo '$' . $p['price'] ?></p>
         </div>
+
     <?php endforeach; ?>
-</div>
 </div>
 
 <?php include('./includes/footer.php'); ?>
 
-</html>

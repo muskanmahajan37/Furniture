@@ -18,6 +18,8 @@ $path = '/flex-furniture/backend/';
         <li><a href="<?php echo $path .'products.php';?>">Products</a></li>
         <li><a href="<?php echo $path .'contacts.php';?>">Contacts</a></li>
         <li><a href="<?php echo $path .'admin_about.php';?>">About Us</a></li>
+        <li><a href="<?php echo $path .'slider.php';?>">Slider</a></li>
+        <li><a href="<?php echo $path .'categories.php';?>">Categories</a></li>
         <li><a href="<?php echo $path .'controllers/functions/logout.php';?>">Logout</a></li>
     </ul>
 </nav>
