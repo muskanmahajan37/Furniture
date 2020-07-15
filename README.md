@@ -18,8 +18,9 @@ Dorezimi 2:
 - CRUD per te gjitha modelet (Product,Category,Slider,Contact,About)
 
 Instalimi dhe konfigurimi:
-db:name -> flex-furniture-1
-
+```
+db_name=flex-furniture-1
+```
 Kopjo skripten qe gjendet brenda projektit, dhe importo ne mysql database te krijuar me emrin 
 (flex-furniture-1)
 
