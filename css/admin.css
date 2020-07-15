@@ -1639,6 +1639,11 @@ nav ul li:hover > a {
     margin-left: -50px;
 }
 
+.main-content table{
+    border-radius: inherit;
+    box-shadow: red 1px;
+}
+
 .main-content-edit {
     width: 100%;
     min-height: 630px;

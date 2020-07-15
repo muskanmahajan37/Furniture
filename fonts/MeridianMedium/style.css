@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'FS Meridian';
+    src: local('FS Meridian Medium'), local('FS-Meridian-Medium'),
+        url('FSMeridian-Medium.woff2') format('woff2'),
+        url('FSMeridian-Medium.woff') format('woff'),
+        url('FSMeridian-Medium.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+  }

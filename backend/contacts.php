@@ -63,7 +63,6 @@ $contacts = $contact->all();
                     <th>Email</th>
                     <th>Message</th>
                     <th>Created_at</th>
-                    <th>Location</th>
                     <th></th>
                 </tr>
                 <?php foreach ($contacts as $contact) : ?>
@@ -73,7 +72,6 @@ $contacts = $contact->all();
                         <td><?php echo $contact['email'] ?></td>
                         <td><?php echo $contact['message'] ?></td>
                         <td><?php echo $contact['created_at'] ?></td>
-                        <td><?php echo $contact['name'] ?></td>
                         <td>
                             <a href="controllers/functions/delete-contact.php?id=<?php echo $contact['id'] ?>">Remove</a>
                         </td>
