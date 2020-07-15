@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .='/flex-furniture/backend/core/Database.php';
+$path .= '/flex-furniture/backend/core/Database.php';
 include_once($path);
 
 class CategoryController

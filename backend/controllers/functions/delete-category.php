@@ -3,7 +3,7 @@ require './../../controllers/CategoryController.php';
 
 $about = new CategoryController();
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $categoryId = $_GET['id'];
 }
 

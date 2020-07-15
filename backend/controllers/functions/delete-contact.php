@@ -3,7 +3,7 @@ require './../../controllers/ContactController.php';
 
 $contact = new ContactController;
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $contactId = $_GET['id'];
 }
 

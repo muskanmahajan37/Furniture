@@ -1,6 +1,6 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .='/flex-furniture/backend/core/Database.php';
+$path .= '/flex-furniture/backend/core/Database.php';
 include_once($path);
 
 class AuthController
@@ -18,18 +18,19 @@ class AuthController
         $query->bindParam(':email', $request['email']);
         $query->execute();
         $user = $query->fetch();
-    
-        if(password_verify($request['password'], $user['password'])){
+
+        if (password_verify($request['password'], $user['password'])) {
             $_SESSION['id'] = $user['id'];
             $_SESSION['name'] = $user['name'];
             $_SESSION['email'] = $user['email'];
             $_SESSION['is_superadmin'] = $user['is_superadmin'];
-            if($user['is_superadmin'] == 1){
+            if ($user['is_superadmin'] == 1) {
                 header('Location: backend/users.php');
-            }else{
+            } else {
                 header("Location: index.php");
             }
         }
     }
 }
+
 ?>

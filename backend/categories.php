@@ -57,15 +57,20 @@ if (isset($_POST['submitted'])) {
                     <th>Name</th>
                     <th></th>
                     <th></th>
-                    <th><button id="myBtn" class="button1">ADD CATEGORY</button></th>
+                    <th>
+                        <button id="myBtn" class="button1">ADD CATEGORY</button>
+                    </th>
                 </tr>
                 <?php foreach ($categories as $category) : ?>
                     <tr>
                         <td><?php echo $category['id'] ?></td>
                         <td><?php echo $category['name'] ?></td>
                         <td></td>
-                        <td><a href="controllers/functions/delete-category.php?id=<?php echo $category["id"] ?>">Remove</a></td>
-                        <td><a href="controllers/functions/edit-category.php?id=<?php echo $category["id"] ?>">Edit</a></td>
+                        <td>
+                            <a href="controllers/functions/delete-category.php?id=<?php echo $category["id"] ?>">Remove</a>
+                        </td>
+                        <td><a href="controllers/functions/edit-category.php?id=<?php echo $category["id"] ?>">Edit</a>
+                        </td>
                     </tr>
                 <?php endforeach ?>
             </table>
@@ -76,7 +81,7 @@ if (isset($_POST['submitted'])) {
                     <form action="" method="POST">
                         <div id="contact-form-group" class="form-group">
                             <div class="input-label">
-                            <label id="heading-contact-phone" class="contact-phone">Name:</label>
+                                <label id="heading-contact-phone" class="contact-phone">Name:</label>
                             </div>
                             <input id="inputButtons" type="text" name="name" style="position:relative;left:5px;">
                         </div>

@@ -3,7 +3,7 @@ require './../../controllers/UserController.php';
 
 $user = new UserController;
 
-if(isset($_GET['id'])) {
+if (isset($_GET['id'])) {
     $userId = $_GET['id'];
 }
 

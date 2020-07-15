@@ -2,7 +2,7 @@
 
 require './../../controllers/CategoryController.php';
 
-$category =  new CategoryController();
+$category = new CategoryController();
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 }
 $currentCategory = $category->edit($categoryId);
 if (isset($_POST['submitted'])) {
-    $category->update($categoryId,$_POST);
+    $category->update($categoryId, $_POST);
 }
 
 

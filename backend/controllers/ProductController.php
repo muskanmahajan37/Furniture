@@ -54,23 +54,23 @@ class ProductController
 
     public function update($product_id, $user, $request)
     {
-            if ($_FILES["image"]["error"]) {
-                $query = $this->database->pdo->prepare('UPDATE products SET name=:name,
+        if ($_FILES["image"]["error"]) {
+            $query = $this->database->pdo->prepare('UPDATE products SET name=:name,
                 description=:description,code=:code,
                 quantity=:quantity,
                 category_id=:category_id,
                 created_by=:created_by,
                 price=:price
                 WHERE id=:id');
-                $query->bindParam(":name", $request["product_name"]);
-                $query->bindParam(":description", $request["product_description"]);
-                $query->bindParam(":code", $request["product_code"]);
-                $query->bindParam(":quantity", $request["product_quantity"]);
-                $query->bindParam(":category_id", $request["product_category"]);
-                $query->bindParam(':price', $request["product_price"]);
-                $query->bindParam(":created_by", $user);
-                $query->bindParam(":id", $product_id);
-                $query->execute();
+            $query->bindParam(":name", $request["product_name"]);
+            $query->bindParam(":description", $request["product_description"]);
+            $query->bindParam(":code", $request["product_code"]);
+            $query->bindParam(":quantity", $request["product_quantity"]);
+            $query->bindParam(":category_id", $request["product_category"]);
+            $query->bindParam(':price', $request["product_price"]);
+            $query->bindParam(":created_by", $user);
+            $query->bindParam(":id", $product_id);
+            $query->execute();
         } else {
             $upload_path = $_SERVER['DOCUMENT_ROOT'];
             $upload_path .= '/flex-furniture/uploads/';

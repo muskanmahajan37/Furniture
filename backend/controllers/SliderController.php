@@ -61,6 +61,7 @@ class SliderController
         }
         return header("Location: ../../slider.php");
     }
+
     public function destroy($id)
     {
         $query = $this->database->pdo->prepare('DELETE FROM slider WHERE id = :id');

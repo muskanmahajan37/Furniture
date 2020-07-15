@@ -57,7 +57,9 @@ if (isset($_POST['submitted'])) {
                     <th>Image</th>
                     <th>Created_at</th>
                     <th></th>
-                    <th><button id="myBtn" class="button1">ADD SLIDER</button></th>
+                    <th>
+                        <button id="myBtn" class="button1">ADD SLIDER</button>
+                    </th>
                 </tr>
                 <?php foreach ($sliders as $slider) : ?>
                     <tr>
@@ -65,8 +67,9 @@ if (isset($_POST['submitted'])) {
                         <td><?php echo $slider['name'] ?></td>
                         <td><?php echo $slider['image'] ?></td>
                         <td><?php echo $slider['created_at'] ?></td>
-                        <td><a href="controllers/functions/delete-slider.php?id=<?php echo $slider["id"] ?>">Remove</a></td>
-                            <td><a href="controllers/functions/edit-slider.php?id=<?php echo $slider["id"] ?>">Edit</a></td>
+                        <td><a href="controllers/functions/delete-slider.php?id=<?php echo $slider["id"] ?>">Remove</a>
+                        </td>
+                        <td><a href="controllers/functions/edit-slider.php?id=<?php echo $slider["id"] ?>">Edit</a></td>
 
                     </tr>
                 <?php endforeach ?>
@@ -78,9 +81,10 @@ if (isset($_POST['submitted'])) {
                     <form action="" method="POST" enctype="multipart/form-data">
                         <div id="contact-form-group" class="form-group">
                             <div class="input-label">
-                            <label id="heading-contact-phone" class="contact-phone">Name:</label>
+                                <label id="heading-contact-phone" class="contact-phone">Name:</label>
                             </div>
-                            <input id="inputButtons" type="text" name="name" style="position:relative;left:5px;" required>
+                            <input id="inputButtons" type="text" name="name" style="position:relative;left:5px;"
+                                   required>
                         </div>
                         <div class="form-group">
                             <div class="input-label"><label id="title-contact-phone" class="contact-phone">Foto:</label>

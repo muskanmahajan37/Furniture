@@ -2,7 +2,7 @@
 
 require './../../controllers/AboutController.php';
 
-$about =  new AboutController();
+$about = new AboutController();
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -11,9 +11,8 @@ if (isset($_GET['id'])) {
 }
 $currentAbout = $about->getAboutById($aboutId);
 if (isset($_POST['submitted'])) {
-    $about->update($aboutId,$_POST);
+    $about->update($aboutId, $_POST);
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +42,6 @@ if (isset($_POST['submitted'])) {
     <meta name="msapplication-TileImage" content="../images/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
 </head>
-
 <body>
 <div class="dashboard-wrapper">
     <?php include '../../inc/sidebar.php' ?>
@@ -51,7 +49,7 @@ if (isset($_POST['submitted'])) {
         <div class="content-title">
             <h1 class="page-title"><a href="#">Admin Dashboard</a></h1>
         </div>
-        <div class="main-content">
+        <div class="main-content-edit" style="margin-left:30px">
             <form action="" method="POST">
                 <div id="contact-form-group" class="form-group">
                     <div class="input-label">
@@ -64,16 +62,15 @@ if (isset($_POST['submitted'])) {
                     <div class="input-label">
                         <label id="heading-contact-phone" class="contact-phone">Biography:</label>
                     </div>
-                    <textarea cols="143" rows ="20" name="biography">
+                    <textarea cols="143" rows="20" name="biography">
                         <?php echo $currentAbout['biography']; ?>
                     </textarea>
                     <div style="margin-top:20px;margin-right: 1000px;">
-                <button type="submit" name="submitted" class="addButton">Update</button>
-                <button type="button" class="cancelButton">Close</button>
+                        <button type="submit" name="submitted" class="addButton">Update</button>
+                        <button type="button" class="cancelButton">Close</button>
                     </div>
             </form>
         </div>
-
     </div>
 </div>
 </body>

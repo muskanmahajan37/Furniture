@@ -2,7 +2,7 @@
 
 require './../../controllers/UserController.php';
 
-$user =  new UserController;
+$user = new UserController;
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 }
 $currentUser = $user->edit($userId);
 if (isset($_POST['submitted'])) {
-    $user->update($userId,$_POST);
+    $user->update($userId, $_POST);
 }
 
 
@@ -65,29 +65,32 @@ if (isset($_POST['submitted'])) {
                     <div class="input-label">
                         <label id="heading-contact-phone" class="contact-phone">Email:</label>
                     </div>
-                    <input id="inputButtons" type="email" value="<?php echo $currentUser['email']; ?>" name="email" style="position:relative;left:5px;" required>
+                    <input id="inputButtons" type="email" value="<?php echo $currentUser['email']; ?>" name="email"
+                           style="position:relative;left:5px;" required>
                 </div>
                 <div id="contact-form-group" class="form-group">
                     <div class="input-label">
                         <label id="heading-contact-phone" class="contact-phone">Password:</label>
                     </div>
-                    <input id="inputButtons" type="password" value="<?php echo $currentUser['password']; ?>" name="password"
-                           style="position:relative;left:5px;"required>
+                    <input id="inputButtons" type="password" value="<?php echo $currentUser['password']; ?>"
+                           name="password"
+                           style="position:relative;left:5px;" required>
                 </div>
                 <div id="contact-form-group" class="form-group">
                     <div class="input-label">
                         <label id="heading-contact-phone" class="contact-phone">City:</label>
                     </div>
-                    <input id="inputButtons" type="text" name="city" value="<?php echo $currentUser['city']; ?>" style="position:relative;left:5px;" required>
+                    <input id="inputButtons" type="text" name="city" value="<?php echo $currentUser['city']; ?>"
+                           style="position:relative;left:5px;" required>
                 </div>
                 <div class="form-group">
                     <label id="title-contact-phone" class="contact-phone">Admin:</label>
                     <input type="checkbox" name="is_superadmin"
-                           <?php
-                           if ($currentUser["is_superadmin"] == "1"){
-                               echo 'checked="checked"';
-                           }
-                           ?>
+                        <?php
+                        if ($currentUser["is_superadmin"] == "1") {
+                            echo 'checked="checked"';
+                        }
+                        ?>
                            style="height: 20px; width: 20px;">
                 </div>
                 <button type="submit" name="submitted" class="addButton">Update</button>

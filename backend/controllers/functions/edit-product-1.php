@@ -58,20 +58,23 @@ if (isset($_POST['submitted'])) {
             <form action="" method="POST" enctype="multipart/form-data">
                 <div id="form-group" class="form-group">
                     <div class="input-label">
-                    <label id="heading-contact-phone" class="contact-phone">Name:</label>
+                        <label id="heading-contact-phone" class="contact-phone">Name:</label>
                     </div>
-                    <input id="inputButtons" type="text" value="<?php echo $currentProduct['product_name']; ?>" name="product_name">
+                    <input id="inputButtons" type="text" value="<?php echo $currentProduct['product_name']; ?>"
+                           name="product_name">
                 </div>
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Kodi:</label>
                     </div>
-                    <input id="inputButtons" type="text" value="<?php echo $currentProduct['product_code']; ?>" name="product_code">
+                    <input id="inputButtons" type="text" value="<?php echo $currentProduct['product_code']; ?>"
+                           name="product_code">
                 </div>
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Kategoria:</label>
                     </div>
                     <select id="selectors" name="product_category" required>
-                        <option value="<?php echo $currentProduct['category_id'] ?>" selected hidden><?php echo $currentProduct['category_name'] ?></option>
+                        <option value="<?php echo $currentProduct['category_id'] ?>" selected
+                                hidden><?php echo $currentProduct['category_name'] ?></option>
                         <?php foreach ($categories as $category) : ?>
                             <option value="<?php echo $category["id"] ?>"><?php echo $category["name"] ?></option>
                         <?php endforeach ?>
@@ -80,17 +83,20 @@ if (isset($_POST['submitted'])) {
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Çmimi:</label>
                     </div>
-                    <input required id="inputButtons" value="<?php echo $currentProduct['product_price'] ?>" type="text" name="product_price" style="position:relative;left:5px;">
+                    <input required id="inputButtons" value="<?php echo $currentProduct['product_price'] ?>" type="text"
+                           name="product_price" style="position:relative;left:5px;">
                 </div>
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Përshkrimi:</label>
                     </div>
-                    <input required id="inputButtons" value="<?php echo $currentProduct['product_description'] ?>" type="text" name="product_description" style="position:relative;left:5px;">
+                    <input required id="inputButtons" value="<?php echo $currentProduct['product_description'] ?>"
+                           type="text" name="product_description" style="position:relative;left:5px;">
                 </div>
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Sasia:</label>
                     </div>
-                    <input required id="inputButtons" value="<?php echo $currentProduct['product_quantity'] ?>" type="text" name="product_quantity" style="position:relative;left:5px;">
+                    <input required id="inputButtons" value="<?php echo $currentProduct['product_quantity'] ?>"
+                           type="text" name="product_quantity" style="position:relative;left:5px;">
                 </div>
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Foto:</label>
@@ -98,7 +104,9 @@ if (isset($_POST['submitted'])) {
                     <input type="file" name="image">
                 </div>
                 <button type="submit" name="submitted" class="addButton">Update</button>
-                <button type="button" onclick="window.location.href = '../../products.php';" class="cancelButton">Cancel</button>
+                <button type="button" onclick="window.location.href = '../../products.php';" class="cancelButton">
+                    Cancel
+                </button>
             </form>
         </div>
 

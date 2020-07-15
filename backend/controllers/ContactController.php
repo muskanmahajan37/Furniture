@@ -57,4 +57,5 @@ class ContactController
         return header('Location: contacts.php');
     }
 }
+
 ?>

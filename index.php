@@ -24,10 +24,14 @@ $index = 0;
             <input type="radio" name="r" id="r4">
             <input type="radio" name="r" id="r5">
             <?php foreach ($sliders as $slider) : ?>
-                <div class="<?php if($index == 0){echo 'slide s1';}else{ echo 'slide';}?>">
+                <div class="<?php if ($index == 0) {
+                    echo 'slide s1';
+                } else {
+                    echo 'slide';
+                } ?>">
                     <img src="uploads/<?php echo $slider['image'] ?>">
                 </div>
-            <?php $index++ ?>
+                <?php $index++ ?>
             <?php endforeach; ?>
         </div>
         <div class="navigation">

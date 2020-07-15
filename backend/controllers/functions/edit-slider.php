@@ -2,7 +2,7 @@
 
 require './../../controllers/SliderController.php';
 
-$slider =  new SliderController;
+$slider = new SliderController;
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -11,7 +11,7 @@ if (isset($_GET['id'])) {
 }
 $currentSlider = $slider->edit($sliderId);
 if (isset($_POST['submitted'])) {
-    $slider->update($sliderId,$_POST);
+    $slider->update($sliderId, $_POST);
 }
 
 
@@ -60,7 +60,8 @@ if (isset($_POST['submitted'])) {
                     </div>
                     <input id="inputButtons" value="<?php echo $currentSlider['name']; ?>"
                            type="text" name="name" style="position:relative;left:5px;" required>
-                </div><br>
+                </div>
+                <br>
                 <div class="form-group">
                     <div class="input-label"><label id="title-contact-phone" class="contact-phone">Foto:</label>
                     </div>

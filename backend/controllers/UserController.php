@@ -1,7 +1,8 @@
 <?php
 $path = $_SERVER['DOCUMENT_ROOT'];
-$path .='/flex-furniture/backend/core/Database.php';
+$path .= '/flex-furniture/backend/core/Database.php';
 include_once($path);
+
 class UserController
 {
     protected $database;
@@ -26,7 +27,7 @@ class UserController
         $query->bindParam(':name', $request['name']);
         $query->bindParam(':email', $request['email']);
         $query->bindParam(':password', $password);
-        $query->bindParam(':is_superadmin',$is_superadmin);
+        $query->bindParam(':is_superadmin', $is_superadmin);
         $query->bindParam(':gender', $request['gender']);
         $query->bindParam(':city', $request['city']);
         $query->execute();
@@ -61,6 +62,7 @@ class UserController
         ]);
         return header("Location: ../../users.php");
     }
+
     public function destroy($id)
     {
         $query = $this->database->pdo->prepare('DELETE FROM users WHERE id = :id');
@@ -73,22 +75,22 @@ class UserController
     {
         isset($request['is_superadmin']) ? $is_superadmin = 1 : $is_superadmin = 0;
         $password = password_hash($request['password'], PASSWORD_DEFAULT);
-        $query=$this->database->pdo->prepare('SELECT * FROM users WHERE email=:email');
+        $query = $this->database->pdo->prepare('SELECT * FROM users WHERE email=:email');
         $query->bindParam(':email', $request['email']);
         $query->execute();
         $user = $query->fetchall();
-        if(count($user)==0){
+        if (count($user) == 0) {
             $query = $this->database->pdo->prepare('INSERT INTO users(name,email,password,is_superadmin,city) VALUES (:name,:email,:password,:is_superadmin,:city)');
             $query->bindParam(':name', $request['name']);
             $query->bindParam(':email', $request['email']);
             $query->bindParam(':password', $password);
-            $query->bindParam(':is_superadmin',$is_superadmin);
+            $query->bindParam(':is_superadmin', $is_superadmin);
             $query->bindParam(':city', $request['city']);
             $query->execute();
-        }
-        else{
+        } else {
             echo 'Ky email ekziston';
         }
     }
 }
+
 ?>
